@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.sist.intelli_ex0211.Test1Action" name="/t1.inc"/>
+    <bean class="com.sist.intelli_ex0211.Test2Action" name="/today.inc"/>
+    <bean class="com.sist.intelli_ex0211.Test3Action" name="/t3.inc"/>
+    <bean class="com.sist.intelli_ex0211.Test4Action" />
+
+    <!-- 뷰 리조버 -->
+    <!-- InternalResourceViewResolver 멤버변수로 확장자를 지정해야한다.-->
+    <!--객체가 생성 됨, viewPage로 사용된 파일의 형식을 지정, 그 위치를 멤버변수로 기억하고 있다.-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value=".jsp"/> <!-- viewPage의 확장자를 .jsp로 지정-->
+        <property name="prefix" value="/WEB-INF/jsp/"/> <!--.jsp의 경로-->
+    </bean>
+</beans>

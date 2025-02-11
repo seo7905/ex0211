@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- DI(Dependence Injection) : 의존성을 주입 -->
+    <!--  
+    	TestVO t1 = new TestVO();
+    	t1.setMsg("DI연습입니다.");
+    	bean이라는 것은 내가 원하는 자바객체를 만들 때 사용
+    -->
+    <bean id="t1" class="ex1.vo.TestVO">
+    	<!-- action.properties 같은 개념이다.
+    	스프링은 컨트롤러 역할을 하는 것이 내부적으로 있다. 
+    	해당 객체의 멤버변수는 property로 정의한다.
+    	-->
+    	<property name="msg">
+    		<value>DI연습입니다.</value>
+    	</property>
+    </bean>
+    
+    <bean id="t2" class="ex1.vo.Test2VO">
+<!--     	<property name="str">
+    		<value>vo2 str연습입니다.</value>
+    	</property>
+    	<property name="value">
+    		<value>12345678</value>
+    	</property> -->
+    	
+    	<property name="str" value="안녕하세요"/>
+    	<property name= "value" value="1223"/> <!-- 약식방법! -->
+    </bean>    
+    
+    <bean id="t3" class="ex1.vo.Test3VO"><!-- 생성자 Injection으로 생성됨! -->
+    	<constructor-arg value="마루치" index="0"/>
+    	<constructor-arg value="true" index="2"/>
+    	<constructor-arg value="22" index="1"/>
+    </bean>
+    
+    <bean id="t4" class="ex1.vo.Test4VO">
+    	<property name="test" ref="t2"/> <!-- 앞서서 만들어진 값을 참조한다(많이 사용함) -->
+    </bean>
+</beans>
